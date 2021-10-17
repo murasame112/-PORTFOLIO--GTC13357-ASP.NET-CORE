@@ -1,0 +1,32 @@
+@model ICollection<GTC13357.Models.Course>
+
+@{
+}
+@{ 
+    int x = 1;
+}
+<h1>Course list: </h1>
+<table style="border-style:solid;">
+    <thead>
+        <tr>
+            <th style="border-style:solid;">X</th>
+            <th style="border-style:solid;">Name</th>
+            <th style="border-style:solid;">Type</th>
+            <th style="border-style:solid;">Hours</thstyle="border-style:solid;">
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var course in @Model)
+        {
+            <tr>
+                <th style="border-style:solid;">@x</th>
+                <td style="border-style:solid;">@course.Name</td>
+                <td style="border-style:solid;">@course.Type</td>
+                <td style="border-style:solid;">@course.Hours</td>
+            </tr>
+            x++;
+
+        }
+    </tbody>
+
+</table>
