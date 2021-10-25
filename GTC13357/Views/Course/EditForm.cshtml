@@ -1,10 +1,14 @@
 @model GTC13357.Models.Course
+@*
 
+*@
 @{
 }
 <div class="container-fluid">
-    <h1>Enter a course data:</h1>
-    <form asp-action="Add" asp-controller="Course" method="post">
+    <h1>Edit course data:</h1>
+    <form asp-action="Edit" asp-controller="Course" method="post">
+
+        <input asp-for="Id" />
         <div class="mb-3">
             <span asp-validation-for="Name" class="text-danger"></span>
             <input class="form-control" placeholder="Your name" asp-for="Name" />
