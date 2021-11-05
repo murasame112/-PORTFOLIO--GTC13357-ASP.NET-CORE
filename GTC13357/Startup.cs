@@ -8,6 +8,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+//te nizej to wazne biblioteki
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.SqlServer;
+using GTC13357.Models;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace GTC13357
 {
@@ -24,7 +29,12 @@ namespace GTC13357
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-        }
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["Data:Products:ConnectionString"]));
+            services.AddTransient<ICourseRepository, EFCourseRepository> ();
+            services.AddMvc();
+            services.AddMemoryCache();
+            services.AddSession();
+        }//zm
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

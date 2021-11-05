@@ -10,12 +10,15 @@ namespace gtc13357.Controllers
 {
     public class CourseController : Controller
     {
+        
         static List<Course> courses = new List<Course>()
         {
             new Course(){Id = 1, Name="Jim Reynor", Type="Begginer", Hours=36} ,
             new Course(){Id = 2, Name="Sarah Kerrigan", Type="Pro", Hours=160},
             new Course(){Id = 3, Name="Arcturus Mengsk", Type="Intermediate", Hours=96}
         };
+        
+
 
         private static int index = 3;
 
@@ -40,21 +43,21 @@ namespace gtc13357.Controllers
         public IActionResult Delete(int id)
         {
             Course findCourse = courses.Find(course => course.Id == id);
-            courses.RemoveAt(id-1);
+            courses.RemoveAt(id - 1);
             return View("List", courses);
         }
 
         public IActionResult Index()
         {
             return View(courses);
-           
+
         }
 
         public IActionResult AddForm()
         {
             return View();
         }
-        
+
         public IActionResult List()
         {
             return View(courses);
@@ -76,6 +79,18 @@ namespace gtc13357.Controllers
                 return View("AddForm");
             }
         }
-        
+
+        private ICourseRepository repository;
+        public CourseController(ICourseRepository repository)
+        {
+            this.repository = repository;
+        }
+
+
+        public ViewResult Index()
+        {
+            return View(repository.Courses);
+        }
+
     }
 }
