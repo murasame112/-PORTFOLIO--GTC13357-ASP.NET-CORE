@@ -2,7 +2,7 @@
 
 namespace GTC13357.Migrations
 {
-    public partial class coursemigration : Migration
+    public partial class addCrs : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -27,7 +27,7 @@ namespace GTC13357.Models
 
     //zm
 
-    public class ICourseRepository
+   /* public class ICourseRepository
     {
        public IQueryable<Course> Courses { get; }
     }
@@ -49,5 +49,5 @@ namespace GTC13357.Models
         }
 
         public IQueryable<Course> Courses => _applicationDbContext.Courses;
-    }
+    }*/
 }

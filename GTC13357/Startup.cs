@@ -13,6 +13,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
 using GTC13357.Models;
 using Microsoft.Extensions.Caching.Memory;
+using GTC13357.Data;
+
 
 namespace GTC13357
 {
@@ -28,16 +30,27 @@ namespace GTC13357
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddControllersWithViews();
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["Data:Products:ConnectionString"]));
-            services.AddTransient<ICourseRepository, EFCourseRepository> ();
+            services.AddDbContext<ApplicationDbContext>(options => 
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))); 
+       
+        
+/*
+            services.AddTransient<ICourseRepository, EFCourseRepository>();
+           
             services.AddMvc();
             services.AddMemoryCache();
-            services.AddSession();
-        }//zm
+            services.AddSession();*/
+        }
+        
+        
+        //zm
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+
         {
             if (env.IsDevelopment())
             {

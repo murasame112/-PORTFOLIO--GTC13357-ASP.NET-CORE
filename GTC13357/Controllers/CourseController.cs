@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GTC13357.Models;
-
+using Microsoft.EntityFrameworkCore;
 
 namespace gtc13357.Controllers
 {
@@ -80,7 +80,7 @@ namespace gtc13357.Controllers
             }
         }
 
-        private ICourseRepository repository;
+        /*private ICourseRepository repository;
         public CourseController(ICourseRepository repository)
         {
             this.repository = repository;
@@ -90,7 +90,7 @@ namespace gtc13357.Controllers
         public ViewResult Index()
         {
             return View(repository.Courses);
-        }
+        }*/
 
     }
 }

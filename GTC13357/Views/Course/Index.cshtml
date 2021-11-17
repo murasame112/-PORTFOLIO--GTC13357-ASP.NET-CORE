@@ -1,9 +1,15 @@
+
 @model ICollection<GTC13357.Models.Course>
+
+
 
 @{
 }
 <h1>Courses</h1>
-<h3>Quantity in database: @Model.Count</h3>
+@{
+            //<h3>Quantity in database: @Model.Count</h3>
+}
+
 <a asp-action="AddForm" asp-controller="Course">Add new course</a>
 <br />
 <a asp-action="List" asp-controller="Course">Display courses</a>
