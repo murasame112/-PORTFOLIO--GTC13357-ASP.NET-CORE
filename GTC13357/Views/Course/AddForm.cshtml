@@ -4,10 +4,14 @@
 }
 <div class="container-fluid">
     <h1>Enter a course data:</h1>
-    <form asp-action="Add" asp-controller="Course" method="post">
+    <form asp-action="AddForm" asp-controller="Course" method="post">
         <div class="mb-3">
-            <span asp-validation-for="Name" class="text-danger"></span>
-            <input class="form-control" placeholder="Your name" asp-for="Name" />
+            <span asp-validation-for="First_Name" class="text-danger"></span>
+            <input class="form-control" placeholder="Your name" asp-for="First_Name" />
+        </div>
+        <div class="mb-3">
+            <span asp-validation-for="Surname" class="text-danger"></span>
+            <input class="form-control" placeholder="Your Surname" asp-for="Surname" />
         </div>
         <div class="mb-3">
             <span asp-validation-for="Type" class="text-danger"></span>

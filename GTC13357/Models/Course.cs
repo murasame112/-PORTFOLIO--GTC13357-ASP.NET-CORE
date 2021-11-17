@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.Extensions.Caching.Memory;
+using System.ComponentModel;
 
 
 namespace GTC13357.Models
@@ -17,7 +18,11 @@ namespace GTC13357.Models
         public int Id { get; set; }
         [Required(ErrorMessage = "Name is required!")]
         [MinLength(2)]
-        public string Name { get; set; }
+        [DisplayName("First Name")]
+        public string First_Name { get; set; }
+        [Required(ErrorMessage = "Surname is required!")]
+        [MinLength(2)]
+        public string Surname { get; set; }
         [Required(ErrorMessage = "Type is required!")]
         public string Type { get; set; }
         [Range(minimum: 6, maximum: 180, ErrorMessage = "You have to choose a number between 6 and 180 hours!")]

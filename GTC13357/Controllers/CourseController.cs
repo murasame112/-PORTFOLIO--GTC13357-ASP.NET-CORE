@@ -26,7 +26,19 @@ namespace gtc13357.Controllers
 
         }
 
+        public IActionResult AddForm()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AddForm(Course obj)
+        {
+            _db.Courses.Add(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
 
 
@@ -74,10 +86,7 @@ namespace gtc13357.Controllers
 
 
 
-           public IActionResult AddForm()
-           {
-               return View();
-           }
+          
 
            public IActionResult List()
            {
