@@ -40,7 +40,13 @@ namespace gtc13357.Controllers
             return RedirectToAction("Index");
         }
 
+        
 
+        public IActionResult List()
+        {
+            IEnumerable<Course> objList = _db.Courses;
+            return View(objList);
+        }
 
 
 
