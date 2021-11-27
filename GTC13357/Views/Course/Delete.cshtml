@@ -1,0 +1,30 @@
+@model GTC13357.Models.Course
+
+@{
+}
+<div class="container-fluid">
+    <h1>Enter a course data:</h1>
+    <form asp-action="DeletePost" asp-controller="Course" method="post">
+        <input asp-for="Id" hidden />
+        <div class="mb-3">
+            
+            <input disabled class="form-control" placeholder="Your name" asp-for="First_Name" />
+        </div>
+        <div class="mb-3">
+            
+            <input disabled class="form-control" placeholder="Your Surname" asp-for="Surname" />
+        </div>
+        <div class="mb-3">
+            
+            <input disabled class="form-control" placeholder="Course type" asp-for="Type" />
+        </div>
+        <div class="mb-3">
+            
+            <input disabled class="form-control" placeholder="Number of hours" asp-for="Hours" />
+        </div>
+        <div class="mb-3">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            <a asp-action="List" class=" btn btn-success">Back</a>
+        </div>
+    </form>
+</div>
