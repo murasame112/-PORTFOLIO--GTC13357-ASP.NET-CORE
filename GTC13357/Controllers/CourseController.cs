@@ -22,18 +22,14 @@ namespace gtc13357.Controllers
     {
 
         private ICRUDCourseRepository courses;
+        private readonly ApplicationDbContext _db;
 
-        public CourseController(ICRUDCourseRepository courses)
+        public CourseController(ICRUDCourseRepository courses, ApplicationDbContext db)
         {
+            _db = db;
             this.courses = courses;
         }
 
-        private readonly ApplicationDbContext _db;
-
-        public CourseController(ApplicationDbContext db)
-        {
-            _db = db;
-        }
 
         public IActionResult Index()
         {
@@ -41,6 +37,12 @@ namespace gtc13357.Controllers
             return View(objList);
 
         }
+
+        public IActionResult Add()
+        {
+            return View();
+        }
+
 
         [HttpPost]
         public IActionResult Add(Course course)
