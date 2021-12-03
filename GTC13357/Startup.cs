@@ -8,13 +8,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-//te nizej to wazne biblioteki
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
 using GTC13357.Models;
 using Microsoft.Extensions.Caching.Memory;
 using GTC13357.Data;
-
+using gtc13357.Models;
 
 namespace GTC13357
 {
@@ -32,8 +31,9 @@ namespace GTC13357
         {
             
             services.AddControllersWithViews();
-            services.AddDbContext<ApplicationDbContext>(options => 
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))); 
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddTransient<ICRUDCourseRepository, EFCRUDCourseRepository>();
        
         
 /*
