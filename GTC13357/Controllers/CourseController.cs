@@ -47,16 +47,20 @@ namespace gtc13357.Controllers
         [HttpPost]
         public IActionResult Add(Course course)
         {
+
             if (ModelState.IsValid)
             {
                 course = courses.Add(course);
+                IEnumerable<Course> objList = _db.Courses;
                 //return View("ConfirmCourse", course);
-                return View("List", course);
+                return View("Index", objList);
             }
             else
             {
                 return View();
             }
+
+
         }
 
         public IActionResult Delete(int id)
@@ -164,5 +168,5 @@ namespace gtc13357.Controllers
         */
 
 
-    }
+        }
 }
