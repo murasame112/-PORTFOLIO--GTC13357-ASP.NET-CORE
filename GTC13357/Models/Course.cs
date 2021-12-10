@@ -14,6 +14,12 @@ namespace GTC13357.Models
 {
     public class Course
     {
+
+        public Course()
+        {
+            CourseTitles = new HashSet<CourseTitle>();
+        }
+
         [HiddenInput]
         public int Id { get; set; }
         [Required(ErrorMessage = "Name is required!")]
@@ -23,6 +29,7 @@ namespace GTC13357.Models
         [Required(ErrorMessage = "Surname is required!")]
         [MinLength(2)]
         public string Surname { get; set; }
+        public ICollection<CourseTitle> CourseTitles { get; set; }
         [Required(ErrorMessage = "Type is required!")]
         public string Type { get; set; }
         [Range(minimum: 6, maximum: 180, ErrorMessage = "You have to choose a number between 6 and 180 hours!")]

@@ -17,5 +17,7 @@ namespace GTC13357.Data
         }
 
         public DbSet<Course> Courses { get; set; }
+        public DbSet<CourseTitle> CourseTitles { get; set; }
+
     }
 }
