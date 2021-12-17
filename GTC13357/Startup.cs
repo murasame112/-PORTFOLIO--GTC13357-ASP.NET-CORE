@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,19 +36,18 @@ namespace GTC13357
             services.AddControllersWithViews();
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<AppIdentityDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<AppIdentityDbContext>()
+                .AddDefaultTokenProviders();
             services.AddTransient<ICRUDCourseRepository, EFCRUDCourseRepository>();
-       
-        
-/*
-            services.AddTransient<ICourseRepository, EFCourseRepository>();
-           
-            services.AddMvc();
-            services.AddMemoryCache();
-            services.AddSession();*/
+               
+
         }
         
         
-        //zm
+       
 
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,6 +68,8 @@ namespace GTC13357
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
@@ -75,6 +79,7 @@ namespace GTC13357
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+            IdentitySeedData.EnsurePopulated(app);
         }
     }
 }
