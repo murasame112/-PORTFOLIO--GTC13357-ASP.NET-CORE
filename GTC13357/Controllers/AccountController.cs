@@ -29,6 +29,7 @@ namespace gtc13357.Controllers
         [HttpGet]
         public IActionResult Login(string returnUrl)
         {
+
             return View(new LoginModel
             {
                 ReturnUrl = returnUrl
@@ -42,8 +43,7 @@ namespace gtc13357.Controllers
         {
             if (ModelState.IsValid)
             {
-                IdentityUser user = await
-                _userManager.FindByNameAsync(loginModel.Name);
+                IdentityUser user = await _userManager.FindByNameAsync(loginModel.Name);
                 if (user != null)
                 {
                     await _signInManager.SignOutAsync();

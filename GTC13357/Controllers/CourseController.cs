@@ -7,6 +7,7 @@ using GTC13357.Models;
 using Microsoft.EntityFrameworkCore;
 using GTC13357.Data;
 using gtc13357.Models;
+using Microsoft.AspNetCore.Authorization;
 
 /*
 
@@ -30,20 +31,20 @@ namespace gtc13357.Controllers
             this.courses = courses;
         }
 
-
+        [AllowAnonymous]
         public IActionResult Index()
         {
             IEnumerable<Course> objList = _db.Courses;
             return View(objList);
 
         }
-
+        [Authorize]
         public IActionResult Add()
         {
             return View();
         }
 
-
+        [Authorize]
         [HttpPost]
         public IActionResult Add(Course course)
         {
@@ -62,23 +63,24 @@ namespace gtc13357.Controllers
 
 
         }
-
+        [Authorize]
         public IActionResult Delete(int id)
         {
             courses.Delete(id);
             return View("List", courses.FindAll());
         }
 
+        [AllowAnonymous]
         public IActionResult List()
         {
             return View(courses.FindAll());
         }
-
+        [Authorize]
         public IActionResult Edit(int id)
         {
             return View(courses.FindById(id));
         }
-
+        [Authorize]
         [HttpPost]
         public IActionResult Edit(Course course)
         {
