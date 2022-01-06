@@ -15,6 +15,7 @@ namespace GTC13357.Data
         public
             AppIdentityDbContext(DbContextOptions<AppIdentityDbContext> options) : base(options) { }
 
+       
 
     }
 }

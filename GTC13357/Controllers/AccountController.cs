@@ -41,6 +41,7 @@ namespace gtc13357.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginModel loginModel)
         {
+
             if (ModelState.IsValid)
             {
                 IdentityUser user = await _userManager.FindByNameAsync(loginModel.Name);

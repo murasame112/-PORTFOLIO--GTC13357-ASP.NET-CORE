@@ -3,14 +3,16 @@ using GTC13357.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GTC13357.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211229195730_29_12_migracja1")]
+    partial class _29_12_migracja1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -18,27 +20,15 @@ namespace GTC13357.Migrations
                 .HasAnnotation("ProductVersion", "5.0.10")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("CourseCourseTitle", b =>
-                {
-                    b.Property<int>("CourseTitlesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CoursesId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CourseTitlesId", "CoursesId");
-
-                    b.HasIndex("CoursesId");
-
-                    b.ToTable("CourseCourseTitle");
-                });
-
             modelBuilder.Entity("GTC13357.Models.Course", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Course_Title_Id")
+                        .HasColumnType("int");
 
                     b.Property<string>("First_Name")
                         .IsRequired()
@@ -51,7 +41,13 @@ namespace GTC13357.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("Course_Title_Id");
 
                     b.ToTable("Courses");
                 });
@@ -71,69 +67,29 @@ namespace GTC13357.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CourseTypeId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CourseTypeId")
-                        .IsUnique();
-
                     b.ToTable("CourseTitles");
                 });
 
-            modelBuilder.Entity("GTC13357.Models.CourseType", b =>
+            modelBuilder.Entity("GTC13357.Models.Course", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Points")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Type_Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("CourseTypes");
-                });
-
-            modelBuilder.Entity("CourseCourseTitle", b =>
-                {
-                    b.HasOne("GTC13357.Models.CourseTitle", null)
-                        .WithMany()
-                        .HasForeignKey("CourseTitlesId")
+                    b.HasOne("GTC13357.Models.CourseTitle", "CourseTitle")
+                        .WithMany("Courses")
+                        .HasForeignKey("Course_Title_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("GTC13357.Models.Course", null)
-                        .WithMany()
-                        .HasForeignKey("CoursesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("CourseTitle");
                 });
 
             modelBuilder.Entity("GTC13357.Models.CourseTitle", b =>
                 {
-                    b.HasOne("GTC13357.Models.CourseType", "CourseType")
-                        .WithOne("CourseTitle")
-                        .HasForeignKey("GTC13357.Models.CourseTitle", "CourseTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("CourseType");
-                });
-
-            modelBuilder.Entity("GTC13357.Models.CourseType", b =>
-                {
-                    b.Navigation("CourseTitle");
+                    b.Navigation("Courses");
                 });
 #pragma warning restore 612, 618
         }

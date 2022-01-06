@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.Extensions.Caching.Memory;
 using System.ComponentModel;
-
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GTC13357.Models
 {
@@ -19,12 +19,17 @@ namespace GTC13357.Models
             Courses = new HashSet<Course>();
         }
 
-
+        [Key]
         [HiddenInput]
         public int Id { get; set; }
+        
         [Required(ErrorMessage = "Course title is required!")]
         [MinLength(2)]
         public string Title{ get; set; }
+        public CourseType CourseType { get; set; }
+        [Required(ErrorMessage = "Type is required!")]
+        [ForeignKey("CourseType")]
+        public int CourseTypeId { get; set; }
         [Required(ErrorMessage = "Author's name is required!")]
         [MinLength(2)]
         [DisplayName("Author Name")]

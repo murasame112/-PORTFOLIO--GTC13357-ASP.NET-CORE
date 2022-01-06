@@ -19,7 +19,7 @@ namespace GTC13357.Models
         [Required]
         [UIHint("password")]
         public string Password { get; set; }
-        public string ReturnUrl { get; set; }
+        public string ReturnUrl { get; set; } = "/";
 
     }
 

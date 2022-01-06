@@ -87,6 +87,7 @@ namespace gtc13357.Models
             var course = context.Courses.Find(courseId);
             course.CourseTitles.Add(courseTitle);
             Update(course);
+            
         }
     }
 }
