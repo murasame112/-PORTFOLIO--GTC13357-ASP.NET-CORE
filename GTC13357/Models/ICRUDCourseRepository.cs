@@ -76,6 +76,7 @@ namespace gtc13357.Models
 
         public Course Update(Course course)
         {
+            
             EntityEntry<Course> entityEntry = context.Courses.Update(course);
             context.SaveChanges();
             return entityEntry.Entity;

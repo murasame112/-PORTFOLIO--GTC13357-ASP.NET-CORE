@@ -38,13 +38,15 @@ namespace gtc13357.Controllers
             return View(objList);
 
         }
-        [Authorize]
+        //[Authorize]
+        [AllowAnonymous]
         public IActionResult Add()
         {
             return View();
         }
 
-        [Authorize]
+        //[Authorize]
+        [AllowAnonymous]
         [HttpPost]
         public IActionResult Add(Course course)
         {
@@ -63,7 +65,8 @@ namespace gtc13357.Controllers
 
 
         }
-        [Authorize]
+        //[Authorize]
+        [AllowAnonymous]
         public IActionResult Delete(int id)
         {
             courses.Delete(id);
@@ -75,12 +78,14 @@ namespace gtc13357.Controllers
         {
             return View(courses.FindAll());
         }
-        [Authorize]
+        //[Authorize]
+        [AllowAnonymous]
         public IActionResult Edit(int id)
         {
             return View(courses.FindById(id));
         }
-        [Authorize]
+        //[Authorize]
+        [AllowAnonymous]
         [HttpPost]
         public IActionResult Edit(Course course)
         {

@@ -10,8 +10,10 @@ using Microsoft.Extensions.Caching.Memory;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 
-// zmienic na relacje jeden do wielu, dodac do courseTitles kolumne z course_id czy cos podobnego
-// ogólnie, mozliwe ze trzeba bedzie usunac wszystkie tabele z appidentity (asp net roles i tym podobne), a potem jeszcze raz migracje i update)
+// fajnie byloby zmienic relacje wiele do wielu na jeden do wielu albo dodac nowa tabelke i dla niej utworzyc to api (i wlasne repozytorium musi miec)
+// dodac nowe AddTitle lub cos takiego, na course type i course title
+// dodac tez w crud operacje do tego
+// przez viewmodel uzywac danych na dwoch tabelach
 
 namespace GTC13357.Models
 {
