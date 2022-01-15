@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GTC13357", "GTC13357\GTC13357.csproj", "{71415DA7-FD3A-420C-8919-C089867A457D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GTC_Test", "GTC_Test\GTC_Test.csproj", "{A8D1C1FB-BD46-4514-A28C-46CB547F8F3A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{71415DA7-FD3A-420C-8919-C089867A457D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71415DA7-FD3A-420C-8919-C089867A457D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71415DA7-FD3A-420C-8919-C089867A457D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A8D1C1FB-BD46-4514-A28C-46CB547F8F3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A8D1C1FB-BD46-4514-A28C-46CB547F8F3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A8D1C1FB-BD46-4514-A28C-46CB547F8F3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A8D1C1FB-BD46-4514-A28C-46CB547F8F3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
