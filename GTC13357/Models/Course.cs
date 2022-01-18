@@ -18,6 +18,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 // dodac tez w crud operacje do tego !
 // przez viewmodel uzywac danych na dwoch tabelach np. tam ³¹cz¹c rekordy z nich
 
+// wi¹zanie poprzez wybranie Id Course i Id CourseTitle, a potem po prostu wpisanie do tabeli CourseCourseTitle
+
 // dodaæ Details do poszczegolnych Course i CourseTitle
 
 // naprawiæ Id w CourseTitle (bo jest ten blad z sql)

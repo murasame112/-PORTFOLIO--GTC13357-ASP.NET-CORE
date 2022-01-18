@@ -16,7 +16,7 @@ namespace gtc13357.Models
 
         void Delete(int id);
 
-        Course Update(Course book);
+        Course Update(Course course);
 
         Course FindById(int id);
 
@@ -29,6 +29,12 @@ namespace gtc13357.Models
         CourseTitle AddTitle(CourseTitle courseTitle);
 
         IList<CourseTitle> FindAllTitles();
+
+        void DeleteTitle(int id);
+
+        CourseTitle UpdateTitle(CourseTitle courseTitle);
+
+        CourseTitle FindTitleById(int id);
 
         void AddCourseTitleToCourse(int courseTitleId, int courseId);
 
@@ -107,6 +113,26 @@ namespace gtc13357.Models
 
             return context.CourseTitles.ToList();
 
+        }
+
+        public void DeleteTitle(int id)
+        {
+            context.CourseTitles.Remove(context.CourseTitles.Find(id));
+            context.SaveChanges();
+        }
+
+        public CourseTitle UpdateTitle(CourseTitle courseTitle)
+        {
+
+            EntityEntry<CourseTitle> entityEntry = context.CourseTitles.Update(courseTitle);
+            context.SaveChanges();
+            return entityEntry.Entity;
+        }
+
+        public CourseTitle FindTitleById(int id)
+        {
+
+            return context.CourseTitles.Find(id);
         }
 
 

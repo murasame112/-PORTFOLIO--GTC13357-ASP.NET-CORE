@@ -122,6 +122,29 @@ namespace gtc13357.Controllers
             return View(courseTitles.FindAllTitles());
         }
 
+        [Authorize]
+        public IActionResult DeleteTitle(int id)
+        {
+            courseTitles.DeleteTitle(id);
+            return View("ListTitles", courseTitles.FindAllTitles());
+        }
+
+        
+
+        [Authorize]
+
+        public IActionResult EditTitle(int id)
+        {
+            return View(courseTitles.FindTitleById(id));
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult EditTitle(CourseTitle courseTitle)
+        {
+            courseTitle = courseTitles.UpdateTitle(courseTitle);
+            return View("ListTitles", courseTitles.FindAllTitles());
+        }
 
 
 
