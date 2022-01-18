@@ -11,22 +11,22 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 
 
-// najpierw trzeba dodaæ Typ, potem mo¿na dodaæ powi¹zany z tym typem Title, a potem powi¹zaæ Title z Course
 
-// fajnie byloby zmienic relacje wiele do wielu na jeden do wielu albo dodac nowa tabelke i dla niej utworzyc to api (i wlasne repozytorium musi miec)
-// dodac nowe AddTitle lub cos takiego, na course type i course title
-// dodac tez w crud operacje do tego !
-// przez viewmodel uzywac danych na dwoch tabelach np. tam ³¹cz¹c rekordy z nich
+
+
 
 // wi¹zanie poprzez wybranie Id Course i Id CourseTitle, a potem po prostu wpisanie do tabeli CourseCourseTitle
+// przez viewmodel uzywac danych na dwoch tabelach np. tam ³¹cz¹c rekordy z nich
 
-// dodaæ Details do poszczegolnych Course i CourseTitle
+// dodaæ Details do poszczegolnych Course i CourseTitle (mo¿e to zapytanie z discorda)?
 
-// naprawiæ Id w CourseTitle (bo jest ten blad z sql)
+// naprawiæ Id w CourseTitle (i courseType i Course) (bo jest ten blad z sql)
 
-// poogarniaæ to api
+// api dla CourseTitle
 
 // testy
+
+// frontend
 
 
 
