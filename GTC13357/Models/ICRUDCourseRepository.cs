@@ -71,7 +71,7 @@ namespace gtc13357.Models
                 .Take(size)
                 .ToList();
 
-            //dodac stronicowanie do List.cshtml, dodaj¹c query gdzie bedzie page i size, dodac cos tam link/linq next czy cos
+            
         }
 
         public Course Update(Course course)

@@ -37,11 +37,12 @@ namespace gtc13357.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost]
+        [HttpPost]  
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginModel loginModel)
         {
-
+           
+            
             if (ModelState.IsValid)
             {
                 IdentityUser user = await _userManager.FindByNameAsync(loginModel.Name);
@@ -55,7 +56,7 @@ namespace gtc13357.Controllers
                     }
                 }
             }
-            ModelState.AddModelError("", "Nieprawid這wa nazwa u篡tkownika lub has這");
+             ModelState.AddModelError("LoginErrorF", "Nieprawid這wa nazwa u篡tkownika lub has這");
             return View(loginModel);
 
         }

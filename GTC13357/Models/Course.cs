@@ -10,10 +10,16 @@ using Microsoft.Extensions.Caching.Memory;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 
+// wylogowywanie
+
 // fajnie byloby zmienic relacje wiele do wielu na jeden do wielu albo dodac nowa tabelke i dla niej utworzyc to api (i wlasne repozytorium musi miec)
 // dodac nowe AddTitle lub cos takiego, na course type i course title
-// dodac tez w crud operacje do tego
-// przez viewmodel uzywac danych na dwoch tabelach
+// dodac tez w crud operacje do tego !
+// przez viewmodel uzywac danych na dwoch tabelach np. tam ³¹cz¹c rekordy z nich
+
+// testy
+
+
 
 namespace GTC13357.Models
 {
@@ -43,27 +49,5 @@ namespace GTC13357.Models
 
  
 
-   /* public class ICourseRepository
-    {
-       public IQueryable<Course> Courses { get; }
-    }
-
-    public class ApplicationDbContext : DbContext
-    {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
-        public DbSet<Course> Courses { get; set; }
-
-    }
-
-
-    public class EFCourseRepository : ICourseRepository
-    {
-        private ApplicationDbContext _applicationDbContext;
-        public EFCourseRepository(ApplicationDbContext applicationDbContext)
-        {
-            _applicationDbContext = applicationDbContext;
-        }
-
-        public IQueryable<Course> Courses => _applicationDbContext.Courses;
-    }*/
+  
 }
