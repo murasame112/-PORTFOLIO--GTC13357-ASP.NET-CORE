@@ -16,13 +16,14 @@ namespace gtc13357.Controllers
     {
 
         private ICRUDCourseRepository courses;
+        private ICRUDCourseRepository courseTitles;
         private readonly ApplicationDbContext _db;
 
-        public CourseController(ICRUDCourseRepository courses, ApplicationDbContext db)
+        public CourseController(ICRUDCourseRepository courses, ApplicationDbContext db, ICRUDCourseRepository courseTitles)
         {
             _db = db;
             this.courses = courses;
-            
+            this.courseTitles = courseTitles;
         }
 
         [AllowAnonymous]
@@ -32,15 +33,14 @@ namespace gtc13357.Controllers
             return View(objList);
 
         }
-        [Authorize]
 
+        [Authorize]
         public IActionResult Add()
         {
             return View();
         }
 
         [Authorize]
-
         [HttpPost]
         public IActionResult Add(Course course)
         {
@@ -89,6 +89,41 @@ namespace gtc13357.Controllers
             return View("List", courses.FindAll());
         }
 
+        //============================================================================================
+
+        [Authorize]
+        public IActionResult AddTitle()
+        {
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult AddTitle(CourseTitle courseTitle)
+        {
+
+            if (ModelState.IsValid)
+            {
+                courseTitle = courseTitles.AddTitle(courseTitle);
+                IEnumerable<Course> objList = _db.Courses;
+                return View("Index", objList);
+            }
+            else
+            {
+                return View();
+            }
+
 
         }
+
+        [AllowAnonymous]
+        public IActionResult ListTitles()
+        {
+            return View(courseTitles.FindAllTitles());
+        }
+
+
+
+
+    }
 }

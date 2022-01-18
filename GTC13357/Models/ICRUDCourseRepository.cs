@@ -24,6 +24,12 @@ namespace gtc13357.Models
 
         IList<Course> FindPage(int page, int size);
 
+        //===============================================================================================
+
+        CourseTitle AddTitle(CourseTitle courseTitle);
+
+        IList<CourseTitle> FindAllTitles();
+
         void AddCourseTitleToCourse(int courseTitleId, int courseId);
 
     }
@@ -82,6 +88,28 @@ namespace gtc13357.Models
             return entityEntry.Entity;
         }
 
+
+
+
+        //===============================================================================================
+
+
+
+        public CourseTitle AddTitle(CourseTitle courseTitle)
+        {
+            EntityEntry<CourseTitle> entityEntry = context.CourseTitles.Add(courseTitle);
+            context.SaveChanges();
+            return entityEntry.Entity;
+        }
+
+        public IList<CourseTitle> FindAllTitles()
+        {
+
+            return context.CourseTitles.ToList();
+
+        }
+
+
         public void AddCourseTitleToCourse(int courseTitleId, int courseId)
         {
             var courseTitle = context.CourseTitles.Find(courseTitleId);
@@ -90,5 +118,13 @@ namespace gtc13357.Models
             Update(course);
             
         }
+
+
+
+
+
+
+
+
     }
 }

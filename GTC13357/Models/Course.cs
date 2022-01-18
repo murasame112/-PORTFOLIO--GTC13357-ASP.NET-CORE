@@ -10,12 +10,19 @@ using Microsoft.Extensions.Caching.Memory;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 
-// wylogowywanie
+
+// najpierw trzeba dodaæ Typ, potem mo¿na dodaæ powi¹zany z tym typem Title, a potem powi¹zaæ Title z Course
 
 // fajnie byloby zmienic relacje wiele do wielu na jeden do wielu albo dodac nowa tabelke i dla niej utworzyc to api (i wlasne repozytorium musi miec)
 // dodac nowe AddTitle lub cos takiego, na course type i course title
 // dodac tez w crud operacje do tego !
 // przez viewmodel uzywac danych na dwoch tabelach np. tam ³¹cz¹c rekordy z nich
+
+// dodaæ Details do poszczegolnych Course i CourseTitle
+
+// naprawiæ Id w CourseTitle (bo jest ten blad z sql)
+
+// poogarniaæ to api
 
 // testy
 
