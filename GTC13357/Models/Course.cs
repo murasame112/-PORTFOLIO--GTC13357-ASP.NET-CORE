@@ -18,7 +18,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 // wi¹zanie poprzez wybranie Id Course i Id CourseTitle, a potem po prostu wpisanie do tabeli CourseCourseTitle
 // przez viewmodel uzywac danych na dwoch tabelach np. tam ³¹cz¹c rekordy z nich
 
-// dodaæ Details do poszczegolnych Course i CourseTitle (mo¿e to zapytanie z discorda)?
+// dodaæ Details do poszczegolnych Course i CourseTitle (mo¿e to zapytanie z discorda)?  -   w SymulatorzeWyzimy mia³em zapytania
 
 // naprawiæ Id w CourseTitle (i courseType i Course) (bo jest ten blad z sql)
 
@@ -26,7 +26,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 // testy
 
-// frontend
+// frontend - czcionki i kolory poza _Layout.cshtml, wyrównanie rzeczy w headerze, wnêtrza inputów ³adniejsze (czcionka i kolory), 
 
 
 

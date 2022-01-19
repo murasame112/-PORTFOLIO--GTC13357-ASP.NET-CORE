@@ -1,0 +1,25 @@
+.head_GTC_h {
+    color: #1B2326;
+    font-size: 26px;
+}
+
+.head_GTC_a {
+    font-size:20px;
+    color: #36594C;
+}
+
+.head_GTC_bck{
+    background-color:#A65369;
+    width:100%;
+}
+
+.bod_GTC_bck {
+    background-color: #BFA8B5;
+    width: 100%;
+    height:100%;
+}
+
+body {
+    background-color: #BFA8B5;
+    height: 60vh;
+}
