@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using GTC13357.Data;
 using gtc13357.Models;
 using Microsoft.AspNetCore.Authorization;
-
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace gtc13357.Controllers
 {
@@ -18,6 +18,10 @@ namespace gtc13357.Controllers
         private ICRUDCourseRepository courses;
         private ICRUDCourseRepository courseTitles;
         private readonly ApplicationDbContext _db;
+
+        
+
+
 
         public CourseController(ICRUDCourseRepository courses, ApplicationDbContext db, ICRUDCourseRepository courseTitles)
         {
@@ -89,6 +93,10 @@ namespace gtc13357.Controllers
             return View("List", courses.FindAll());
         }
 
+
+
+
+      
         //============================================================================================
 
         [Authorize]
@@ -146,7 +154,31 @@ namespace gtc13357.Controllers
             return View("ListTitles", courseTitles.FindAllTitles());
         }
 
+        [Authorize]
+        public IActionResult Attach()
+        {
+            return View();
+        }
 
+
+        [Authorize]
+        [HttpPost("{courseId}/{courseTitleId}")]
+        public IActionResult Attach([FromRoute] int courseId, [FromRoute] int courseTitleId)
+        {
+
+            courses.AddCourseTitleToCourse(courseId, courseTitleId);
+            return RedirectToAction($"attach", new { courseId });
+
+        }
+
+       /* [HttpPost("addproduct/{orderId}/{productId}")]
+        public ActionResult AddProduct([FromRoute] int orderId, [FromRoute] int productId)
+        {
+            orderService.AddProduct(orderId, productId, User);
+            return RedirectToAction($"addproduct", new { orderId });
+        }
+
+        */
 
     }
 }

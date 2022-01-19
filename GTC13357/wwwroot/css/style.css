@@ -8,9 +8,18 @@
     color: #36594C;
 }
 
-.head_GTC_bck{
-    background-color:#A65369;
-    width:100%;
+.head_GTC_bck {
+    background-color: #A65369;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.head_GTC_bck_con{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
 }
 
 .bod_GTC_bck {
@@ -22,4 +31,9 @@
 body {
     background-color: #BFA8B5;
     height: 60vh;
+}
+
+.inpt_GTC{
+    background-color:#F2E4F0;
+    color:#A65369;
 }

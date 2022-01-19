@@ -1,18 +1,13 @@
 @model GTC13357.Models.LoginModel
 
-<a asp-action="Index" asp-controller="Course">index</a>
-<br />
-
-
-
 <form asp-action="Login" asp-controller="Account" method="post">
     <div class="mb-3">
         <span asp-validation-for="Name" class="text-danger"></span>
-        <input class="form-control" placeholder="Your name" asp-for="Name" />
+        <input class="inpt_GTC form-control" placeholder="Your name" asp-for="Name" />
     </div>
     <div class="mb-3">
         <span asp-validation-for="Password" class="text-danger"></span>
-        <input class="form-control" placeholder="Your password" asp-for="Password" />
+        <input class="inpt_GTC form-control" placeholder="Your password" asp-for="Password" />
     </div>
     <input asp-for="ReturnUrl" hidden />
 

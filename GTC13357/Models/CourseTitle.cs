@@ -38,7 +38,7 @@ namespace GTC13357.Models
         [MinLength(2)]
         [DisplayName("Author Surname")]
         public string Author_Surname { get; set; }
-        public ICollection<Course> Courses { get; set; }
+        public virtual ICollection<Course> Courses { get; set; }
 
     }
 

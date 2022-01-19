@@ -20,9 +20,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 // dodaæ Details do poszczegolnych Course i CourseTitle (mo¿e to zapytanie z discorda)?  -   w SymulatorzeWyzimy mia³em zapytania
 
-// naprawiæ Id w CourseTitle (i courseType i Course) (bo jest ten blad z sql)
-
-// api dla CourseTitle
+// api rest
 
 // testy
 
@@ -52,7 +50,7 @@ namespace GTC13357.Models
         public string Surname { get; set; }
         [Range(minimum: 6, maximum: 180, ErrorMessage = "You have to choose a number between 6 and 180 hours!")]
         public int Hours { get; set; }
-        public ICollection<CourseTitle> CourseTitles { get; set; }
+        public virtual ICollection<CourseTitle> CourseTitles { get; set; }
         
     }
 

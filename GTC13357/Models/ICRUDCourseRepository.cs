@@ -24,6 +24,8 @@ namespace gtc13357.Models
 
         IList<Course> FindPage(int page, int size);
 
+        
+
         //===============================================================================================
 
         CourseTitle AddTitle(CourseTitle courseTitle);
@@ -37,7 +39,7 @@ namespace gtc13357.Models
         CourseTitle FindTitleById(int id);
 
         void AddCourseTitleToCourse(int courseTitleId, int courseId);
-
+        ICollection<CourseTitle> GetCourseTitlesFromCourse(int courseId);
     }
 
     public class EFCRUDCourseRepository : ICRUDCourseRepository
@@ -141,10 +143,15 @@ namespace gtc13357.Models
             var courseTitle = context.CourseTitles.Find(courseTitleId);
             var course = context.Courses.Find(courseId);
             course.CourseTitles.Add(courseTitle);
-            Update(course);
-            
+            context.SaveChanges();
+
         }
 
+        public ICollection<CourseTitle> GetCourseTitlesFromCourse(int courseId)
+        {
+            var course = context.Courses.Find(courseId);
+            return course.CourseTitles.ToList();
+        }
 
 
 

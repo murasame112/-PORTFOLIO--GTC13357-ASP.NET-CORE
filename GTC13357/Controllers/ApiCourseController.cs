@@ -63,7 +63,7 @@ namespace gtc13357.Controllers
         [Route("{id}")]
         public ActionResult Delete(int id)
         {
-            //TU MIA£ BOOL ZAMIAST VOID W DELETE W CRUD, DLATEGO COS TAKIEGO
+            //TU by³ BOOL ZAMIAST VOID W DELETE W CRUD, DLATEGO COS TAKIEGO
             /*if (courses.Delete(id))
             {
                 return Ok();
