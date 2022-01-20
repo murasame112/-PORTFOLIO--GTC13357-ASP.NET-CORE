@@ -1,4 +1,41 @@
-@model IEnumerable<GTC13357.Models.Course>
+@model IEnumerable<GTC13357.Models.CourseTitle>
 
 @{
 }
+
+
+<table class="content-wrapper table table-dark">
+    <tr>
+        <th scope="col">
+            @Html.DisplayName("Name")
+        </th>
+        <th scope="col">
+            @Html.DisplayName("Author")
+        </th>
+    </tr>
+    @foreach (var courseTitle in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => courseTitle.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => courseTitle.Author_Surname)
+            </td>
+            <td>
+                @using (Html.BeginForm("Attach", "Course",
+               new
+               {
+                   courseId = ViewContext.RouteData.Values["courseId"],
+                   courseTitleId = courseTitle.Id
+               },
+               FormMethod.Post))
+                {
+                    <input type="submit" class="button" value="Add" />
+                }
+            </td>
+        </tr>
+    }
+</table>
+@Html.ActionLink("Go back", "Index", "Course")
+

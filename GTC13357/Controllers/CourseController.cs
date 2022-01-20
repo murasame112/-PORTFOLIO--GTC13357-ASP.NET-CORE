@@ -140,7 +140,6 @@ namespace gtc13357.Controllers
         
 
         [Authorize]
-
         public IActionResult EditTitle(int id)
         {
             return View(courseTitles.FindTitleById(id));
@@ -154,31 +153,57 @@ namespace gtc13357.Controllers
             return View("ListTitles", courseTitles.FindAllTitles());
         }
 
+
+
         [Authorize]
-        public IActionResult Attach()
+        public IActionResult AttachListTitle(int id)
+        {
+
+            ViewData["crsId"] = id;
+            return View("AttachListTitle", courseTitles.FindAllTitles());
+        }
+
+
+
+       
+        [Authorize]
+        public IActionResult Attach(int id)
         {
             return View();
         }
-
+        
+        
 
         [Authorize]
-        [HttpPost("{courseId}/{courseTitleId}")]
+        [HttpGet("Course/Attach/{courseId}/{courseTitleId}")]
         public IActionResult Attach([FromRoute] int courseId, [FromRoute] int courseTitleId)
         {
-
             courses.AddCourseTitleToCourse(courseId, courseTitleId);
-            return RedirectToAction($"attach", new { courseId });
+
+
+            return View();
 
         }
 
-       /* [HttpPost("addproduct/{orderId}/{productId}")]
-        public ActionResult AddProduct([FromRoute] int orderId, [FromRoute] int productId)
+
+        // w list zamiast details jest attach
+        // wysyla do attachListTitle, w linku dajac courseId
+        // attach listuje courseTitle i pozwala wybrac ktores poprzez AttachCourseTitle czy cos takiego
+        // i potem akcja, ktora bierze wczesniejsze CourseId oraz CourseTitleId i wywoluje na nich AddCourseTitleToCourse
+
+        /*
+        [Authorize]
+        [HttpPost("Course/Attach/{courseId}/{courseTitleId}")]
+        public IActionResult Attach([FromRoute] int courseId, [FromRoute] int courseTitleId)
         {
-            orderService.AddProduct(orderId, productId, User);
-            return RedirectToAction($"addproduct", new { orderId });
-        }
+            courses.AddCourseTitleToCourse(courseId, courseTitleId);
 
-        */
+
+            return View();
+
+        }
+         */
+
 
     }
 }

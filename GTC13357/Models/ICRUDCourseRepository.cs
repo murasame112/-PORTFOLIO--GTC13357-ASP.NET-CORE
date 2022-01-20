@@ -138,7 +138,7 @@ namespace gtc13357.Models
         }
 
 
-        public void AddCourseTitleToCourse(int courseTitleId, int courseId)
+        public void AddCourseTitleToCourse(int courseId, int courseTitleId)
         {
             var courseTitle = context.CourseTitles.Find(courseTitleId);
             var course = context.Courses.Find(courseId);
