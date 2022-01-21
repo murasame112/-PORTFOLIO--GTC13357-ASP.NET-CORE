@@ -15,15 +15,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 
 
-// wi¹zanie poprzez wybranie Id Course i Id CourseTitle, a potem po prostu wpisanie do tabeli CourseCourseTitle
-// przez viewmodel uzywac danych na dwoch tabelach np. tam ³¹cz¹c rekordy z nich
-
-// dodaæ Details do poszczegolnych Course i CourseTitle (mo¿e to zapytanie z discorda)?  -   w SymulatorzeWyzimy mia³em zapytania
-
-// api rest
-
 // testy
 
+// api rest
 
 
 
