@@ -3,23 +3,23 @@
 @{
 }
 <div class="container-fluid">
-    <h1>Enter a course data:</h1>
+    <h1 class="head_GTC_h">Enter a course data:</h1>
     <form asp-action="AddTitle" asp-controller="Course" method="post">
         <div class="mb-3">
             <span asp-validation-for="Title" class="text-danger"></span>
-            <input class="form-control" placeholder="Course title" asp-for="Title" />
+            <input class="inpt_GTC form-control" placeholder="Course title" asp-for="Title" />
         </div>
         <div class="mb-3">
             <span asp-validation-for="CourseTypeId" class="text-danger"></span>
-            <input class="form-control" placeholder="Course type id" asp-for="CourseTypeId" />
+            <input class="inpt_GTC form-control" placeholder="Course type id" asp-for="CourseTypeId" />
         </div>
         <div class="mb-3">
             <span asp-validation-for="Author_Name" class="text-danger"></span>
-            <input class="form-control" placeholder="Author name" asp-for="Author_Name" />
+            <input class="inpt_GTC form-control" placeholder="Author name" asp-for="Author_Name" />
         </div>
         <div class="mb-3">
             <span asp-validation-for="Author_Surname" class="text-danger"></span>
-            <input class="form-control" placeholder="Author surname" asp-for="Author_Surname" />
+            <input class="inpt_GTC form-control" placeholder="Author surname" asp-for="Author_Surname" />
         </div>
 
         <div class="mb-3">

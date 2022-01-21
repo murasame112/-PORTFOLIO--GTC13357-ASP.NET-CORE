@@ -3,19 +3,19 @@
 @{
 }
 <div class="container-fluid">
-    <h1>Enter a participant data:</h1>
+    <h1 class="head_GTC_h">Enter a participant data:</h1>
     <form asp-action="Add" asp-controller="Course" method="post">
         <div class="mb-3">
             <span asp-validation-for="First_Name" class="text-danger"></span>
-            <input class="form-control" placeholder="Your name" asp-for="First_Name" />
+            <input class="inpt_GTC form-control" placeholder="Your name" asp-for="First_Name" />
         </div>
         <div class="mb-3">
             <span asp-validation-for="Surname" class="text-danger"></span>
-            <input class="form-control" placeholder="Your Surname" asp-for="Surname" />
+            <input class="inpt_GTC form-control" placeholder="Your Surname" asp-for="Surname" />
         </div>
         <div class="mb-3">
             <span asp-validation-for="Hours" class="text-danger"></span>
-            <input class="form-control" placeholder="Number of hours" asp-for="Hours" />
+            <input class="inpt_GTC form-control" placeholder="Number of hours" asp-for="Hours" />
         </div>
         <div class="mb-3">
             <button type="submit">Save</button>

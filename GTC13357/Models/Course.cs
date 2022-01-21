@@ -24,7 +24,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 // testy
 
-// frontend - czcionki i kolory poza _Layout.cshtml, wyrównanie rzeczy w headerze, wnêtrza inputów ³adniejsze (czcionka i kolory), 
 
 
 
