@@ -47,7 +47,7 @@ namespace gtc13357.Controllers
 
 
         [HttpPost]
-        public ActionResult Add([FromBody] Course course)
+        public ActionResult<Course> Add([FromBody] Course course)
         {
             if (ModelState.IsValid)
             {
