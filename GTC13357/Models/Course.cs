@@ -18,9 +18,6 @@ Finalnie, encja Course zacze³a odpowiadaæ po prostu osobom, które bior¹ w kursac
 */
 
 
-
-// testy
-
 // api rest
 
 
