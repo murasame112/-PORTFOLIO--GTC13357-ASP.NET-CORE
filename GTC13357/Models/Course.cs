@@ -17,11 +17,6 @@ Sta³o siê to dlatego, ¿e mój plan na ten projekt lekko ewoluuowa³ z ka¿dymi kole
 Finalnie, encja Course zacze³a odpowiadaæ po prostu osobom, które bior¹ w kursach udzia³. Niemniej - we frontendzie wszystko jest pod tym wzglêdem w porz¹dku; kursy to kursy a uczestnicy to uczestnicy :)
 */
 
-
-// api rest
-
-
-
 namespace GTC13357.Models
 {
     public class Course
