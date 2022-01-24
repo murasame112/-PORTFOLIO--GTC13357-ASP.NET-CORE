@@ -12,23 +12,11 @@ namespace gtc13357Test
     public class ApiCourseControllerTest : IClassFixture<ApiCourseController>
     {
 
-        public ICRUDCourseRepository courses;
-        
-
-        public ApiCourseControllerTest(ICRUDCourseRepository courses)
-        {
-            this.courses = courses;
-
-        }
-
-
-
-
         [Fact]
         public void testAdd()
         {
             //Given
-            ApiCourseControllerTest controllerTest = new ApiCourseControllerTest(courses);
+            ICRUDCourseRepository courses = new TestMemoryCourseRepository();
             ApiCourseController controller = new ApiCourseController(courses);
             Course course = new Course() { First_Name = "test name", Surname = "test surname", Hours = 100};
             //When
@@ -59,7 +47,7 @@ namespace gtc13357Test
         public void testGet()
         {
             //Given
-            ApiCourseControllerTest controllerTest = new ApiCourseControllerTest(courses);
+            ICRUDCourseRepository courses = new TestMemoryCourseRepository();
             ApiCourseController controller = new ApiCourseController(courses);
             Course course = new Course() { First_Name = "test name", Surname = "test surname", Hours = 100 };
 

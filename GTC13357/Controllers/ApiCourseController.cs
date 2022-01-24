@@ -15,7 +15,7 @@ namespace gtc13357.Controllers
     public class ApiCourseController : Controller
     {
         private ICRUDCourseRepository courses;
-        private readonly ApplicationDbContext _db;
+        
 
 
         public ApiCourseController(ICRUDCourseRepository courses)
@@ -63,23 +63,15 @@ namespace gtc13357.Controllers
         [Route("{id}")]
         public ActionResult Delete(int id)
         {
-            //TU by³ BOOL ZAMIAST VOID W DELETE W CRUD, DLATEGO COS TAKIEGO
-            /*if (courses.Delete(id))
+            var delete = courses.FindById(id);
+            if (delete == null)
             {
-                return Ok();
+                return NotFound($"Course with id = {id} not found");
             }
             else
-            {
-                return NotFound();
-            }*/
-            if (ModelState.IsValid)
             {
                 courses.Delete(id);
-                return Ok();
-            }
-            else
-            {
-                return NotFound();
+                return Ok($"Course with id = {id} got deleted");
             }
         }
 
