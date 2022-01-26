@@ -11,11 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 
-/*
-Doœæ wa¿na uwaga - w kodzie, Course odpowiada tak naprawdê Uczestnikom kursów, a CourseTitle odpowiada Kursom.
-Sta³o siê to dlatego, ¿e mój plan na ten projekt lekko ewoluuowa³ z ka¿dymi kolejnymi laboratoriami - poznawanie nowych rzeczy sprawia³o, ¿e zmienia³em wczeœniej zaplanowany projekt
-Finalnie, encja Course zacze³a odpowiadaæ po prostu osobom, które bior¹ w kursach udzia³. Niemniej - we frontendzie wszystko jest pod tym wzglêdem w porz¹dku; kursy to kursy a uczestnicy to uczestnicy :)
-*/
+
 
 namespace gtc13357.Controllers
 {
