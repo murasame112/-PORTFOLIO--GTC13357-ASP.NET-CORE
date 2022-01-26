@@ -1,0 +1,22 @@
+@model GTC13357.Models.CourseType
+
+@{
+}
+<div class="container-fluid">
+    <h1 class="head_GTC_h">Enter a course type data:</h1>
+    <form asp-action="AddType" asp-controller="Course" method="post">
+        <div class="mb-3">
+            <span asp-validation-for="Type_Name" class="text-danger"></span>
+            <input class="inpt_GTC form-control" placeholder="Course type" asp-for="Type_Name" />
+        </div>
+        <div class="mb-3">
+            <span asp-validation-for="Points" class="text-danger"></span>
+            <input class="inpt_GTC form-control" placeholder="Course points" asp-for="Points" />
+        </div>
+        
+
+        <div class="mb-3">
+            <button type="submit">Save</button>
+        </div>
+    </form>
+</div>

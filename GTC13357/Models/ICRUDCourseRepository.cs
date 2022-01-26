@@ -12,6 +12,8 @@ namespace gtc13357.Models
 {
     public interface ICRUDCourseRepository
     {
+
+        //===========COURSE
         Course Add(Course course);
 
         void Delete(int id);
@@ -26,7 +28,7 @@ namespace gtc13357.Models
 
         
 
-        //===============================================================================================
+        //===========COURSE TITLE
 
         CourseTitle AddTitle(CourseTitle courseTitle);
 
@@ -40,6 +42,12 @@ namespace gtc13357.Models
 
         void AddCourseTitleToCourse(int courseTitleId, int courseId);
         ICollection<CourseTitle> GetCourseTitlesFromCourse(int courseId);
+
+        //===========COURSE TYPE
+
+        CourseType AddType(CourseType courseType);
+
+        IList<CourseType> FindAllTypes();
     }
 
     public class EFCRUDCourseRepository : ICRUDCourseRepository
@@ -155,8 +163,22 @@ namespace gtc13357.Models
 
 
 
+        //===============================================================================================
 
 
+        public CourseType AddType(CourseType courseType)
+        {
+            EntityEntry<CourseType> entityEntry = context.CourseTypes.Add(courseType);
+            context.SaveChanges();
+            return entityEntry.Entity;
+        }
+
+        public IList<CourseType> FindAllTypes()
+        {
+
+            return context.CourseTypes.ToList();
+
+        }
 
 
     }

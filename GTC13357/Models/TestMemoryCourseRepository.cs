@@ -106,5 +106,16 @@ public class TestMemoryCourseRepository : ICRUDCourseRepository
         return null;
     }
 
+    public CourseType AddType(CourseType courseType)
+    {
+        return null;
+    }
+
+    public IList<CourseType> FindAllTypes()
+    {
+
+        return null;
+
+    }
 
 }

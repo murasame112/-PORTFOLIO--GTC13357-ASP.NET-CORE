@@ -20,17 +20,19 @@ namespace gtc13357.Controllers
 
         private ICRUDCourseRepository courses;
         private ICRUDCourseRepository courseTitles;
+        private ICRUDCourseRepository courseTypes;
         private readonly ApplicationDbContext _db;
 
         
 
 
 
-        public CourseController(ICRUDCourseRepository courses, ApplicationDbContext db, ICRUDCourseRepository courseTitles)
+        public CourseController(ICRUDCourseRepository courses, ApplicationDbContext db, ICRUDCourseRepository courseTitles, ICRUDCourseRepository courseTypes)
         {
             _db = db;
             this.courses = courses;
             this.courseTitles = courseTitles;
+            this.courseTypes = courseTypes;
         }
 
         [AllowAnonymous]
@@ -188,25 +190,38 @@ namespace gtc13357.Controllers
 
         }
 
+        //============================================================================================
 
-        // w list zamiast details jest attach
-        // wysyla do attachListTitle, w linku dajac courseId
-        // attach listuje courseTitle i pozwala wybrac ktores poprzez AttachCourseTitle czy cos takiego
-        // i potem akcja, ktora bierze wczesniejsze CourseId oraz CourseTitleId i wywoluje na nich AddCourseTitleToCourse
-
-        /*
         [Authorize]
-        [HttpPost("Course/Attach/{courseId}/{courseTitleId}")]
-        public IActionResult Attach([FromRoute] int courseId, [FromRoute] int courseTitleId)
+        public IActionResult AddType()
         {
-            courses.AddCourseTitleToCourse(courseId, courseTitleId);
-
-
             return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult AddType(CourseType courseType)
+        {
+
+            if (ModelState.IsValid)
+            {
+                courseType = courseTypes.AddType(courseType);
+                IEnumerable<Course> objList = _db.Courses;
+                return View("Index", objList);
+            }
+            else
+            {
+                return View();
+            }
+
 
         }
-         */
 
+        [AllowAnonymous]
+        public IActionResult ListTypes()
+        {
+            return View(courseTypes.FindAllTypes());
+        }
 
     }
 }
