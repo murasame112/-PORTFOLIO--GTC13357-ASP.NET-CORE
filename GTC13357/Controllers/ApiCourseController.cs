@@ -8,11 +8,14 @@ using Microsoft.EntityFrameworkCore;
 using GTC13357.Data;
 using gtc13357.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 
 namespace gtc13357.Controllers
 {
+    [ApiController]
     [Route("api/courses")]
-    public class ApiCourseController : Controller
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public class ApiCourseController : ControllerBase
     {
         private ICRUDCourseRepository courses;
         
@@ -31,8 +34,14 @@ namespace gtc13357.Controllers
 
         [HttpGet]
         [Route("{Id}")]
+        [MyException]
         public ActionResult Get(int id)
         {
+            if (id == null)
+            {
+                throw new MyException("Error: No id");
+            }
+
             Course course = courses.FindById(id);
             if (course != null)
             {
