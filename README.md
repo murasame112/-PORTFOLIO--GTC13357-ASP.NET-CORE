@@ -1,17 +1,9 @@
 # GTC13357
 
-Projekt strony do zarządzania sklepem z kursami w ASP.NET CORE
+Project of webpage to manage shop with courses (ASP.NET CORE)
 
-1:
-Dość ważna uwaga - w kodzie, Course odpowiada tak naprawdę Uczestnikom kursów, a CourseTitle odpowiada Kursom.
-Stało się to dlatego, że mój plan na ten projekt lekko ewoluuował z każdymi kolejnymi laboratoriami - poznawanie nowych rzeczy sprawiało, że zmieniałem wcześniej zaplanowany projekt
-Finalnie, encja Course zaczeła odpowiadać po prostu osobom, które biorą w kursach udział. Niemniej - we frontendzie wszystko jest pod tym względem w porządku; kursy to kursy a uczestnicy to uczestnicy :)
+1 - In code, Course stands for Participants, and a CourseTitle stands for Coruses. It's because it was a project for my studies, and idea for it kind of evolved during the time as we learned more and more new things, and I'll be honest - I didn't have time to repair it before deadline and I was afraid to "just change names" with Ctrl+RR. Anyway - in fronend everything looks alright, but in code it's a bit messed up with names.
 
-2:
-W wymaganiach nie było, że projekt automatycznie ma tworzyć jakieś rekordy w bazie danych, więc ich nie tworzy - łatwo dodać je za pośrednictwem strony, a chciałem uniknąć potencjalnych błędów
+2 - Add some records to CourseTypes first, since it's child-table of CourseTitle
 
-3:
-Proszę najpierw dodawać rekordy Course Types, ponieważ jest to tabela podrzędna Course Title (podczas tworzenia rekordu Course Title jest wymagane podanie Id jednego z rekordów z Course Type)
-
-4:
-Akcja Attach służy do powiązania rekordów Course i Course Title (będących w relacji wiele-do-wielu)
+3 - Attach action exists to attach records in Course and CourseTitle (they are in many-to-many relationship)
