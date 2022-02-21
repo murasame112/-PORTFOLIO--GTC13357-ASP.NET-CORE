@@ -1,4 +1,7 @@
 # GTC13357
+
+Projekt strony do zarządzania sklepem z kursami w ASP.NET CORE
+
 1:
 Dość ważna uwaga - w kodzie, Course odpowiada tak naprawdę Uczestnikom kursów, a CourseTitle odpowiada Kursom.
 Stało się to dlatego, że mój plan na ten projekt lekko ewoluuował z każdymi kolejnymi laboratoriami - poznawanie nowych rzeczy sprawiało, że zmieniałem wcześniej zaplanowany projekt
